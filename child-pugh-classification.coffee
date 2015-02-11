@@ -1,7 +1,15 @@
+
+
+###*
+calculates Child-Pugh score
+
+@class ChildPughClassification
+@module HandlingLiverCirrhosis
+###
 class ChildPughClassification
 
     ###*
-    get mortality by this score
+    constructor
 
     @constructor
     @param {Number} freqOfEncephalopathy 1|2|3
@@ -89,7 +97,7 @@ class ChildPughClassification
     ###
     @getPointByEncephalopathy: (freqOfEncephalopathy) ->
 
-        return freqOfEncephalopathy
+        return Math.min(Math.max(freqOfEncephalopathy, 1), 3)
 
         ###
         switch freqOfEncephalopathy
@@ -114,7 +122,7 @@ class ChildPughClassification
     ###
     @getPointByAscites: (degreeOfAscites) ->
 
-        return degreeOfAscites
+        return Math.min(Math.max(degreeOfAscites, 1), 3)
 
         ###
         switch degreeOfAscites
@@ -191,33 +199,6 @@ class ChildPughClassification
 
         else
             return 3
-
-
-
-
-    ###*
-    get score parts by Child-Pugh classification
-
-    @method getScoreByChildPughClassification
-    @private
-    @static
-    @param {ChildPughClassification} childPughClassification
-    @return {Number} score
-    ###
-    @getScoreByChildPughClassification: (childPughClassification) ->
-
-        childPughScore = childPughClassification.getScore() # A,B,C
-
-        switch childPughScore
-
-            when 'A'
-                return 0
-
-            when 'B'
-                return 1
-
-            when 'C'
-                return 4
 
 
 

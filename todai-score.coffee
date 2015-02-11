@@ -1,3 +1,10 @@
+
+###*
+calculates Todai score
+
+@class TodaiScore
+@module HandlingLiverCirrhosis
+###
 class TodaiScore
 
     ###*
@@ -5,14 +12,14 @@ class TodaiScore
 
     @constructor
     @param {Number} age
-    @param {ChildPughClassification} chlidChildPughClassification
-    @param {CharlsonComorbidityIndex} charlsonComorbidityIndex
+    @param {String} childPughScore
+    @param {Number} charlsonComorbidityScore
     @param {Number} durationOfAnesthesia unit: minutes
     ###
     constructor: (
         @age
-        @childPughClassification
-        @charlsonComorbidityIndex
+        @childPughScore
+        @charlsonComorbidityScore
         @durationOfAnesthesia
     )->
 
@@ -22,8 +29,8 @@ class TodaiScore
 
         scores =
             age        : @constructor.getScoreByAge(@age)
-            childPugh  : @constructor.getScoreByChildPughClassification(@childPughClassification)
-            charlson   : @constructor.getScoreByCharlsonComorbidityIndex(@charlsonComorbidityIndex)
+            childPugh  : @constructor.getScoreByChildPughScore(@childPughScore)
+            charlson   : @constructor.getScoreByCharlsonComorbidityScore(@charlsonComorbidityScore)
             anesthesia : @constructor.getScoreByDurationOfAnesthesia(@durationOfAnesthesia)
 
         score += scorePart for name, scorePart of scores
@@ -42,7 +49,7 @@ class TodaiScore
     ###
     getMortality: ->
 
-        score = getScore()
+        score = @getScore()
 
         return @constructor.getMortalityByScore(score)
 
@@ -68,17 +75,15 @@ class TodaiScore
 
 
     ###*
-    get score parts by Child-Pugh classification
+    get score parts by Child-Pugh score
 
-    @method getScoreByChildPughClassification
+    @method getScoreByChildPughScore
     @private
     @static
-    @param {ChildPughClassification} childPughClassification
+    @param {String} childPughScore A|B|C
     @return {Number} score
     ###
-    @getScoreByChildPughClassification: (childPughClassification) ->
-
-        childPughScore = childPughClassification.getScore() # A,B,C
+    @getScoreByChildPughScore: (childPughScore) ->
 
         switch childPughScore
 
@@ -91,19 +96,20 @@ class TodaiScore
             when 'C'
                 return 4
 
+            else
+                throw new Error("invalid Child-Pugh score, #{childPughScore}")
+
 
     ###*
-    get score parts by Charlson Comorbidity Index
+    get score parts by Charlson Comorbidity score
 
-    @method getScoreByCharlsonComorbidityIndex
+    @method getScoreByCharlsonComorbidityScore
     @private
     @static
-    @param {CharlsonComorbidityIndex} charlsonComorbidityIndex
+    @param {Number} charlsonComorbidityScore
     @return {Number} score
     ###
-    @getScoreByCharlsonComorbidityIndex: (charlsonComorbidityIndex) ->
-
-        charlsonComorbidityScore = charlsonComorbidityIndex.getScore() # number
+    @getScoreByCharlsonComorbidityScore: (charlsonComorbidityScore) ->
 
         if charlsonComorbidityScore <= 2
             return 0
