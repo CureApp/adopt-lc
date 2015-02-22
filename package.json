@@ -7,11 +7,10 @@
       "test": "spec/"
   },
   "dependencies": {
-    "espower-coffee": "^0.10.0",
-    "power-assert": "^0.10.1"
   },
   "devDependencies": {
     "coffee-script": "^1.9.0",
+    "power-assert": "^0.10.1",
     "espower-coffee": "^0.10.0"
   },
   "scripts": {
