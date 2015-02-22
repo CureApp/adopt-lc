@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "cake test",
-    "postinstall": "coffee -bc index.coffee"
+    "postinstall": "cake build"
   },
   "author": "CureApp, Inc",
   "license": "ISC"

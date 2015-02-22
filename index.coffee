@@ -1,7 +1,7 @@
 require('coffee-script/register')
 
 module.exports =
-    CharlsonComorbidityIndex: require('./src/charlson-comorbidity-index')
-    ChildPughClassification : require('./src/child-pugh-classification')
-    TodaiScore              : require('./src/todai-score')
+    CharlsonComorbidityIndex: require('./lib/charlson-comorbidity-index')
+    ChildPughClassification : require('./lib/child-pugh-classification')
+    TodaiScore              : require('./lib/todai-score')
 
