@@ -10,12 +10,14 @@ npm install -g mocha # only for test.
 
 and put it to "lib" directory in Titanium Alloy
 
+
 ## usage
 
 ### Child-Pugh Classification
 
 ```coffee
-ChildPughClassification = require('child-pugh-classification')
+ChildPughClassification = require('todai-score').ChildPughClassification
+
 cpclass = new ChildPughClassification(
     2   #  frequency of encephalopathy
     2   #  degree of ascites
@@ -28,20 +30,22 @@ score = cpclass.getScore() # A|B|C
 
 ```
 
+
 ### Charlson Comorbidity Index 
 
 ```coffee
-CharlsonComorbidityIndex = require('charlson-comorbidity-index')
+CharlsonComorbidityIndex = require('todai-score').CharlsonComorbidityIndex
 ccindex = new CharlsonComorbidityIndex()
 ccindex.hasAIDS = true
 score = ccindex.getScore() # number
 description = ccindex.getScoreDescription() # Low|Moderate|High|Very high
 ```
 
+
 ### Todai Score
 
 ```coffee
-TodaiScore = require('../todai-score')
+TodaiScore = require('todai-score').TodaiScore
 todaiScore = new TodaiScore(
     71  # age
     'A' # Child-Pugh score
@@ -51,6 +55,7 @@ todaiScore = new TodaiScore(
 score = todaiScore.getScore() # number
 mortality = todaiScore.getMortality() # number(float)
 ```
+
 
 
 
@@ -64,3 +69,4 @@ or
 ```bash
 npm test
 ```
+
