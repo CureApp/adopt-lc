@@ -14,8 +14,8 @@
     "espower-coffee": "^0.10.0"
   },
   "scripts": {
-    "test": "./node_modules/coffee-script/bin/cake test",
-    "postinstall": "./node_modules/coffee-script/bin/cake build"
+    "test": "./node_modules/.bin/cake test",
+    "install": "cake build"
   },
   "author": "CureApp, Inc",
   "license": "ISC"
