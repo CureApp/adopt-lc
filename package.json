@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/cake test",
-    "install": "cake build"
+    "postinstall": "cake build"
   },
   "author": "CureApp, Inc",
   "license": "ISC"
