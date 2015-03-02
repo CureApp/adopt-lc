@@ -1,7 +1,7 @@
 
 assert = require 'power-assert'
 
-TodaiScore = require('../todai-score')
+TodaiScore = require('../src/todai-score')
 
 describe 'TodaiScore', ->
 

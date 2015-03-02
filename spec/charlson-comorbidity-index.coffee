@@ -1,7 +1,7 @@
 
 assert = require 'power-assert'
 
-CharlsonComorbidityIndex = require('../charlson-comorbidity-index')
+CharlsonComorbidityIndex = require('../src/charlson-comorbidity-index')
 
 describe 'CharlsonComorbidityIndex', ->
 

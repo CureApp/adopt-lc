@@ -1,7 +1,7 @@
 
 assert = require 'power-assert'
 
-ChildPughClassification = require('../child-pugh-classification')
+ChildPughClassification = require('../src/child-pugh-classification')
 
 describe 'ChildPughClassification', ->
 
