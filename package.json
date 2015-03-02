@@ -7,14 +7,15 @@
       "test": "spec/"
   },
   "dependencies": {
+    "coffee-script": "^1.9.0"
   },
   "devDependencies": {
-    "coffee-script": "^1.9.0",
     "power-assert": "^0.10.1",
     "espower-coffee": "^0.10.0"
   },
   "scripts": {
-    "test": "cake test"
+    "test": "./node_modules/coffee-script/bin/cake test",
+    "postinstall": "./node_modules/coffee-script/bin/cake build"
   },
   "author": "CureApp, Inc",
   "license": "ISC"
