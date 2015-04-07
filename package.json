@@ -1,7 +1,7 @@
 {
-  "name": "todai-score",
+  "name": "adopt-lc",
   "version": "1.0.1",
-  "description": "calculates todai score",
+  "description": "calculates ADOPT-LC",
   "main": "index.js",
   "directories": {
       "test": "spec/"

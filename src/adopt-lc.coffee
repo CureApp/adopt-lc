@@ -1,11 +1,11 @@
 
 ###*
-calculates Todai score
+calculates Adopt-lc
 
-@class TodaiScore
+@class AdoptLC
 @module HandlingLiverCirrhosis
 ###
-class TodaiScore
+class AdoptLC
 
     ###*
     constructor
@@ -173,4 +173,4 @@ class TodaiScore
 
         return mortality
 
-module.exports = TodaiScore
+module.exports = AdoptLC
