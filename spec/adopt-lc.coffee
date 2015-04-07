@@ -6,13 +6,13 @@ AdoptLC = require('../src/adopt-lc')
 describe 'AdoptLC', ->
 
     describe '@getScoreByAge', ->
-        it 'returns 0 by 60', ->
-            age = 60
+        it 'returns 0 by 65', ->
+            age = 65
             score = AdoptLC.getScoreByAge(age)
             assert(score is 0)
 
-        it 'returns 1 by 61', ->
-            age = 61
+        it 'returns 1 by 66', ->
+            age = 66
             score = AdoptLC.getScoreByAge(age)
             assert(score is 1)
 
@@ -28,10 +28,10 @@ describe 'AdoptLC', ->
             score = AdoptLC.getScoreByChildPughScore(cpscore)
             assert(score is 1)
 
-        it 'returns 4 by C', ->
+        it 'returns 3 by C', ->
             cpscore = 'C'
             score = AdoptLC.getScoreByChildPughScore(cpscore)
-            assert(score is 4)
+            assert(score is 3)
 
 
     describe '@getScoreByCharlsonComorbidityScore', ->
@@ -101,16 +101,16 @@ describe 'AdoptLC', ->
             assert(mortality is 0)
 
 
-        it 'returns 0.8 by 2', ->
+        it 'returns 0.5 by 2', ->
             score = 2
             mortality = AdoptLC.getMortalityByScore(score)
-            assert(mortality is 0.8)
+            assert(mortality is 0.5)
 
 
-        it 'returns 50.0 by 9', ->
-            score = 9
+        it 'returns 100.0 by 8', ->
+            score = 8
             mortality = AdoptLC.getMortalityByScore(score)
-            assert(mortality is 50.0)
+            assert(mortality is 100.0)
 
 
 
@@ -139,5 +139,5 @@ describe 'AdoptLC', ->
             )
             mortality = adoptLC.getMortality()
 
-            assert(mortality is 1.0)
+            assert(mortality is 1.1)
 

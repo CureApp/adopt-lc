@@ -66,7 +66,7 @@ class AdoptLC
     ###
     @getScoreByAge: (age) ->
 
-        if age > 60
+        if age > 65
             return 1
 
         else
@@ -94,7 +94,7 @@ class AdoptLC
                 return 1
 
             when 'C'
-                return 4
+                return 3
 
             else
                 throw new Error("invalid Child-Pugh score, #{childPughScore}")
@@ -157,19 +157,18 @@ class AdoptLC
         table =
             0: 0
             1: 0
-            2: 0.8
-            3: 1.0
-            4: 5.7
-            5: 7.5
-            6: 13.6
-            7: 23.3
-            8: 33.3
-            9: 50.0
+            2: 0.5
+            3: 1.1
+            4: 5.5
+            5: 8.9
+            6: 25.0
+            7: 60.0
+            8: 100.0
 
         mortality = table[score]
 
         if not mortality?
-            throw new Error('invalid score. score must be integer and ranged in 0 - 9')
+            throw new Error('invalid score. score must be integer and ranged in 0 - 8')
 
         return mortality
 
